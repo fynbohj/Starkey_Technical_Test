@@ -21,85 +21,80 @@ namespace Starkey_Technical
                 var d = new Dictionary<string, Dictionary<string, string[]>> { };
 
                 // Declarations for statistics
-                int redCount = 0;
-                int yellowCount = 0;
-                int blueCount = 0;
-                int greenCount = 0;
+                int redTotal = 0;
+                int yellowTotal = 0;
+                int blueTotal = 0;
+                int greenTotal = 0;
 
-                // Get list of all unique users in json file
-                List<string>? users = new List<string> { };
                 for (int i = 0; i < entries?.Count; i++)
                 {
-                    if (!users.Contains(entries[i].User))
+                    var user = entries[i].User;
+                    var command = entries[i].Command;
+                    var timestamp = entries[i].Timestamp;
+
+                    // user is not in dictionary
+                    if (!d.ContainsKey(user))
                     {
-                        users.Add(entries[i].User);
-                    }
-                }
-                users.Sort();
-
-                // Create a dictionary for each user
-                for (int i = 0; i < users.Count; i++)
-                {
-                    List<string> red = new List<string>();
-                    List<string> yellow = new List<string>();
-                    List<string> blue = new List<string>();
-                    List<string> green = new List<string>();
-
-                    for (int j = 0; j < entries?.Count; j++)
-                    {
-                        Entry entry = entries[j];
-
-                        if (entry.User.Equals(users[i]))
+                        var record = new Dictionary<string, string[]> 
                         {
-                            if (entry.Command.Equals("red"))
-                            {
-                                red.Add(entry.Timestamp);
-                                redCount++;
-                            }
-                            if (entry.Command.Equals("yellow"))
-                            {
-                                yellow.Add(entry.Timestamp);
-                                yellowCount++;
-                            }
-                            if (entry.Command.Equals("blue"))
-                            {
-                                blue.Add(entry.Timestamp);
-                                blueCount++;
-                            }
-                            if (entry.Command.Equals("green"))
-                            {
-                                green.Add(entry.Timestamp);
-                                greenCount++;
-                            }
-                        }
+                            {"red", [] },
+                            {"yellow", [] },
+                            {"blue", [] },
+                            {"green", [] },
+                        };
+
+                        // take old array, add to it, replace it in dictionary
+                        var temp = record[command];
+                        record[command] = temp.Append(timestamp).ToArray();
+                        d.Add(user, record);
+                        
                     }
 
-                    // Create dictionary and add it to main dictionary
-                    var record = new Dictionary<string, string[]>
-                {
-                    {"red", red.ToArray() },
-                    {"yellow", yellow.ToArray() },
-                    {"blue", blue.ToArray() },
-                    {"green", green.ToArray() },
-                };
-                    d.Add(users[i], record);
+                    // user is already in dictionary
+                    else
+                    {
+                        // take old array, add to it, replace it in dictionary
+                        var dictionary = d[user];
+                        var temp = dictionary[command];
+                        dictionary[command] = temp.Append(timestamp).ToArray();
+                        d[user] = dictionary;
+                    }
+
+                    // record what command was used for record keeping
+                    if (command.Equals("red"))
+                    {
+                        redTotal++;
+                    }
+                    if (command.Equals("yellow"))
+                    {
+                        yellowTotal++;
+                    }
+                    if (command.Equals("blue"))
+                    {
+                        blueTotal++;
+                    }
+                    if (command.Equals("green"))
+                    {
+                        greenTotal++;
+                    }
                 }
 
                 // Stats displayed in json
                 var stats = new Dictionary<string, int>
                 {
-                    {"Number of Users", users.Count },
-                    {"Times Red Was Called", redCount },
-                    {"Times Yellow Was Called", yellowCount },
-                    {"Times Blue Was Called", blueCount },
-                    {"Times Green Was Called", greenCount },
+                    {"Number of Users", d.Count },
+                    {"Number of Records", entries.Count },
+                    {"Times Red Was Called", redTotal },
+                    {"Times Yellow Was Called", yellowTotal },
+                    {"Times Blue Was Called", blueTotal },
+                    {"Times Green Was Called", greenTotal },
 
                 };
 
                 string result = "Statistics: " + JsonConvert.SerializeObject(stats, Formatting.Indented) + "\n" + JsonConvert.SerializeObject(d, Formatting.Indented);
 
                 // Write the final dictionary to the output in json
-                 File.WriteAllText("output.json", result);
+                File.WriteAllText("output.json", result);
             }
         }
     }
