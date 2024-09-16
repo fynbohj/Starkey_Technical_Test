@@ -1,3 +1,10 @@
+Statistics: {
+  "Number of Users": 9,
+  "Times Red Was Called": 16,
+  "Times Yellow Was Called": 13,
+  "Times Blue Was Called": 16,
+  "Times Green Was Called": 15
+}
 {
   "user_1": {
     "red": [

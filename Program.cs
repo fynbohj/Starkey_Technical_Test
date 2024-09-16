@@ -20,6 +20,12 @@ namespace Starkey_Technical
                 List<Entry>? entries = JsonConvert.DeserializeObject<List<Entry>>(json);
                 var d = new Dictionary<string, Dictionary<string, string[]>> { };
 
+                // Declarations for statistics
+                int redCount = 0;
+                int yellowCount = 0;
+                int blueCount = 0;
+                int greenCount = 0;
+
                 // Get list of all unique users in json file
                 List<string>? users = new List<string> { };
                 for (int i = 0; i < entries?.Count; i++)
@@ -31,7 +37,7 @@ namespace Starkey_Technical
                 }
                 users.Sort();
 
-                // create a dictionary for each user
+                // Create a dictionary for each user
                 for (int i = 0; i < users.Count; i++)
                 {
                     List<string> red = new List<string>();
@@ -48,23 +54,27 @@ namespace Starkey_Technical
                             if (entry.Command.Equals("red"))
                             {
                                 red.Add(entry.Timestamp);
+                                redCount++;
                             }
                             if (entry.Command.Equals("yellow"))
                             {
                                 yellow.Add(entry.Timestamp);
+                                yellowCount++;
                             }
                             if (entry.Command.Equals("blue"))
                             {
                                 blue.Add(entry.Timestamp);
+                                blueCount++;
                             }
                             if (entry.Command.Equals("green"))
                             {
                                 green.Add(entry.Timestamp);
+                                greenCount++;
                             }
                         }
                     }
 
-                    // create dictionary and add it to main dictionary
+                    // Create dictionary and add it to main dictionary
                     var record = new Dictionary<string, string[]>
                 {
                     {"red", red.ToArray() },
@@ -73,12 +83,24 @@ namespace Starkey_Technical
                     {"green", green.ToArray() },
                 };
                     d.Add(users[i], record);
-
                 }
-                File.WriteAllText("output.json", JsonConvert.SerializeObject(d, Formatting.Indented));
 
+                // Stats displayed in json
+                var stats = new Dictionary<string, int>
+                {
+                    {"Number of Users", users.Count },
+                    {"Times Red Was Called", redCount },
+                    {"Times Yellow Was Called", yellowCount },
+                    {"Times Blue Was Called", blueCount },
+                    {"Times Green Was Called", greenCount },
+
+                };
+
+                string result = "Statistics: " + JsonConvert.SerializeObject(stats, Formatting.Indented) + "\n" + JsonConvert.SerializeObject(d, Formatting.Indented);
+
+                // Write the final dictionary to the output in json
+                 File.WriteAllText("output.json", result);
             }
-
         }
     }
 }
