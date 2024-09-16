@@ -1,0 +1,17 @@
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Starkey_Technical.exe
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Starkey_Technical.deps.json
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Starkey_Technical.runtimeconfig.json
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Starkey_Technical.dll
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Starkey_Technical.pdb
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.AssemblyInfoInputs.cache
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.AssemblyInfo.cs
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.csproj.CoreCompileInputs.cache
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.dll
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\refint\Starkey_Technical.dll
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.pdb
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.genruntimeconfig.cache
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\ref\Starkey_Technical.dll
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.csproj.AssemblyReference.cache
+C:\Users\jacob\Desktop\CSCI_Stuff\Starkey\Starkey_Technical\obj\Debug\net8.0\Starkey_Technical.csproj.CopyComplete
