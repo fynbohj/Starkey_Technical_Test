@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Starkey_Technical")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+219b4d37eb0c58ff6a5d12b00799837aca70909b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ff164d18c376c6252987c56c77ffdd6c48073ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Starkey_Technical")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Starkey_Technical")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

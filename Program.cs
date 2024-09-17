@@ -91,9 +91,8 @@ namespace Starkey_Technical
 
                 };
 
-                string result = "Statistics: " + JsonConvert.SerializeObject(stats, Formatting.Indented) + "\n" + JsonConvert.SerializeObject(d, Formatting.Indented);
-
                 // Write the final dictionary to the output in json
+                string result = "Statistics: " + JsonConvert.SerializeObject(stats, Formatting.Indented) + "\n" + JsonConvert.SerializeObject(d, Formatting.Indented);
                 File.WriteAllText("output.json", result);
             }
         }
